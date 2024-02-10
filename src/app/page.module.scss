@@ -1,0 +1,55 @@
+.valentin {
+  background: url('../../public//images/background_mobile.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+
+  &__content {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 0 16px;
+    
+    &__title {
+      color: white;
+      font-size: 30px;
+      text-align: center;
+      font-weight: 900;
+    }
+
+    &__image {
+      width: 100%;
+    }
+
+    &__buttons {
+      display: flex;
+      gap: 20px;
+
+      &_yes, &_no {
+        border: none;
+        outline: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: white;
+        font-size: 20px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      &_yes {
+        background-color: #4CAF50;
+        color: white;
+      }
+
+      &_no {
+        background-color: #f44336;
+        color: white;
+      }
+    }
+  }
+}

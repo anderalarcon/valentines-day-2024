@@ -23,19 +23,20 @@ export default function RootLayout({ children }) {
     <html lang="en" className={myFont.className}
     >
       <head>
-        <link rel="canonical" href="https://valentines-day-2024-m8rz0rd0k-anderalarcon.vercel.app/" />
+        <link rel="canonical" href="https://valentines-day-2024-nu.vercel.app/" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="San Valentin 2024" />
+        <meta property="og:title"
+          content="¡Sorprende con Amor! San Valentín 2024: Mensajes Personalizados y Detalles Especiales" />
         <meta property="og:description" content="Sorprende a tu pareja este San Valentin" />
         <meta property="og:image"
-          content="https://i.pinimg.com/originals/2b/18/1c/2b181cbe4bc9e1cdf33e39d7ce2df5fd.jpg" />
-        <meta property="og:url" content="https://valentines-day-2024-m8rz0rd0k-anderalarcon.vercel.app/" />
-        <meta name="twitter:title" content="San Valentin 2024" />
+          content="https://i.ytimg.com/vi/OJ2mfZAwVQ8/maxresdefault.jpg" />
+        <meta property="og:url" content="https://valentines-day-2024-nu.vercel.app/" />
+        <meta name="twitter:title"
+          content="¡Sorprende con Amor! San Valentín 2024: Mensajes Personalizados y Detalles Especiales" />
         <meta name="twitter:description" content="Sorprende a tu pareja este San Valentin" />
         <meta name="twitter:image"
-          content="https://i.pinimg.com/originals/2b/18/1c/2b181cbe4bc9e1cdf33e39d7ce2df5fd.jpg" />
+          content="https://i.ytimg.com/vi/OJ2mfZAwVQ8/maxresdefault.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-
       </head>
       <body>
         <Suspense>

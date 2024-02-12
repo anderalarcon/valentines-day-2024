@@ -1,26 +1,26 @@
 'use client';
 import { useState } from 'react';
-import styles from './page.module.scss';
-import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
+import { useSearchParams } from 'next/navigation';
+import { useTypewriter } from 'react-simple-typewriter';
 import Confetti from 'react-confetti';
-import { Cursor, useTypewriter } from 'react-simple-typewriter';
+import styles from './page.module.scss';
 
 import {
-  finalMessage,
   duduYesQuestions,
   duduNoQuestions,
   initialImage,
-  finalImage,
   duduYesImages,
   duduNoImages,
   initialQuestion,
   defaultImage,
-  yesButtonTexts,
-  noButtonTexts,
-} from '../utilities/data';
-
+  yesButtonAfirmativeOptions,
+  yesButtonNegativeOptions,
+  noButtonAfirmativeOptions,
+  noButtonNegativeOptions,
+} from '@/utilities/data';
 import { variants, item } from '@/utilities/framer-motion';
+import useFinal from '@/hooks/useFinal';
 
 const Home = () => {
   const [answer, setAnswer] = useState('no');
@@ -31,6 +31,7 @@ const Home = () => {
   const searchParams = useSearchParams();
   const from = searchParams.get('from') || 'Dudu';
   const to = searchParams.get('to') || 'Bubu';
+  const customMessage = searchParams.get('message') || 'Te amo mucho chiqui';
 
   const [name] = useTypewriter({
     words: [`Hola ${to}, te acaba de llegar un mensaje de ${from}, ¿quieres abrirlo?`],
@@ -38,13 +39,14 @@ const Home = () => {
     loop: 1
   });
 
+  const { finalMessage, finalImage } = useFinal(step, customMessage);
+
   const handleConfetti= () => {
     setShowConfetti(true);
     setTimeout(() => {
       setShowConfetti(false);
     }, 4500);
   };
-
 
   const handleAnswer = (value) => {
     if (value === 'si') {
@@ -68,7 +70,15 @@ const Home = () => {
     } else if (step === 1){
       question = initialQuestion;
     } else if (step === duduYesQuestions.length + 2) {
-      question = finalMessage;
+      return (
+        <div>
+          <motion.p
+            variants={item}
+            className={styles.valentin__content__title}>
+            {finalMessage}
+          </motion.p>
+        </div>
+      );
     } else {
       question = answer === 'si' ? duduYesQuestions[step - 2] : duduNoQuestions[step - 2];
     }
@@ -89,7 +99,16 @@ const Home = () => {
     } else if (step === 1){
       imageSrc = defaultImage;
     } else if (step === duduYesQuestions.length + 2) {
-      imageSrc = finalImage;
+      return(
+        <motion.img
+          className={styles.valentin__content__image}
+          variants={item}
+          src={finalImage}
+          width={400}
+          height={400}
+          alt="Dudu flores"
+        />
+      );
     } else {
       imageSrc = answer === 'si' ? duduYesImages[step - 2] : duduNoImages[step - 2];
     }
@@ -125,43 +144,17 @@ const Home = () => {
     }
 
     const getYesButtonText = () => {
-      if (step === 2) {
-        return answer === 'si' ? 'Segurísima/o' : 'Está bien...';
+      if (answer === 'si') {
+        return yesButtonAfirmativeOptions[step - 1];
       }
-
-      if (step === 3) {
-        return answer === 'si' ? '¡Que si!' : 'Me convenciste';
-      }
-
-      if (step === 4) {
-        return answer === 'si' ? 'Claro que quiero' : 'Ya caí';
-      }
-
-      if (step === 5) {
-        return answer === 'si' ? 'Ahí estaré' : 'Está bien...';
-      }
-
-      return yesButtonTexts[step - 1];
+      return yesButtonNegativeOptions[step - 1];
     };
 
     const getNoButtonText = () => {
-      if (step === 2) {
-        return answer === 'si' ? 'Me haces dudar' : 'No';
+      if (answer === 'si') {
+        return noButtonAfirmativeOptions[step - 1];
       }
-
-      if (step === 3) {
-        return answer === 'si' ? 'Ya no' : 'Que no';
-      }
-
-      if (step === 4) {
-        return answer === 'si' ? 'Ya no' : 'Ash...';
-      }
-
-      if (step === 5) {
-        return answer === 'si' ? 'TBD' : 'Me secuestran';
-      }
-
-      return noButtonTexts[step - 1];
+      return noButtonNegativeOptions[step - 1];
     };
 
     return (
@@ -181,7 +174,6 @@ const Home = () => {
           onClick={() => handleAnswer('no')}
           onHoverStart={() => setHoverButton('no')}
           variants={item}
-
         >
           {getNoButtonText()}
         </motion.button>
@@ -227,7 +219,7 @@ const Home = () => {
       ${showConfetti ? 'show_confetti' : 'dont_show_confetti'}`}
         >
           <Confetti
-            width={548}
+            width={550}
             height={window?.innerHeight}
           />
         </div>
@@ -245,7 +237,6 @@ const Home = () => {
         {getTextByStep()}
         {getImageByStep()}
         {getButtons()}
-        
       </motion.div>
     </main>
   );

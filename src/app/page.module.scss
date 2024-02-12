@@ -7,6 +7,8 @@
   justify-content: center;
   align-items: center; 
   position: relative;
+  width: 100vw;
+  background-color: red;
 
   &__content {
     width: fit-content;
@@ -50,7 +52,7 @@
         padding: 10px 20px;
         border-radius: 5px;
         color: white;
-        font-size: 20px;
+        font-size: 17px;
         font-weight: 900;
         cursor: pointer;
       }
@@ -73,9 +75,37 @@
 
       &__title {
         font-size: 40px;
+        width: 500px;
+        // min-height: 196px;
       }
       &__image {
-        max-width: 548px;
+        max-width: 500px;
+        max-height: 500px;
+      }
+
+      &__buttons {
+        &_yes, &_no {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 992px) {
+    &__content {
+
+      &__title {
+        width: 550px;
+      }
+      &__image {
+        max-width: 550px;
+        max-height: 550px;
+      }
+
+      &__buttons {
+        &_yes, &_no {
+          font-size: 22px;
+        }
       }
     }
   }

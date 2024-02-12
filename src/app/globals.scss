@@ -14,3 +14,11 @@ h6, button {
   font-size: inherit;
   font-weight: inherit;
 }
+
+
+.dont_show_confetti {
+  canvas {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+}

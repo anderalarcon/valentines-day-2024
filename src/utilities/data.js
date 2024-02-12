@@ -13,7 +13,7 @@ export const defaultImage = '/gifts/dudu_flower.gif';
 export const duduYesQuestions = [
   '¿Segura?',
   'No hay vuelta atras, ¿ completamente segura ?',
-  '¿Yo sabía que querías',
+  'Yo sabía que querías',
   'Entonces me alistare y te esperare ...',
 ];
 
@@ -37,3 +37,20 @@ export const duduNoImages = [
   '/gifts/dudu_angry_2.gif',
   '/gifts/dudu_decided.gif'
 ];
+
+export const yesButtonTexts = [
+  'Si',
+  'Segurísima/o',
+  '!Que si!',
+  'Asi es',
+  'Ahi estaré'
+];
+
+export const noButtonTexts = [
+  'No',
+  'Lo pensaré',
+  'Tal vez',
+  'No',
+  'Esta bien, me rindo'
+];
+

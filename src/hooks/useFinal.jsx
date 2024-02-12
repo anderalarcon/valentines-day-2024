@@ -26,7 +26,7 @@ const useFinal = (step, message) => {
         setFinalImage('/gifts/final.gif');
       }, 16000);
     }
-  }, [step]);
+  }, [step, message]);
 
   return {
     finalMessage,

@@ -5,8 +5,8 @@ export const initialImage ='/gifts/letter.gif';
 export const defaultImage = '/gifts/dudu_flower.gif';
 
 export const duduYesQuestions = [
-  '¿Segura?',
-  'No hay vuelta atras, ¿ completamente segura ?',
+  '¿Segura/o?',
+  'No hay vuelta atras, ¿ completamente segura/o ?',
   'Yo sabía que querías',
   'Entonces me alistare y te esperare ...',
 ];

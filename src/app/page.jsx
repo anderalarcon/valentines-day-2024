@@ -39,7 +39,7 @@ const Home = () => {
     loop: 1
   });
 
-  const { finalMessage, finalImage } = useFinal(step, customMessage);
+  const { finalMessage, finalImage, background } = useFinal(step, customMessage);
 
   const handleConfetti= () => {
     setShowConfetti(true);
@@ -48,7 +48,17 @@ const Home = () => {
     }, 4500);
   };
 
+  const handleAudio = () => {
+    const audio = new Audio('/audio/audio.mp3');
+    audio.volume = 0.05;
+    audio.loop = true; 
+    audio.play();
+  };
+
   const handleAnswer = (value) => {
+    if (value === 'abrir') {
+      handleAudio();
+    }
     if (value === 'si') {
       handleConfetti();
     }
@@ -134,7 +144,7 @@ const Home = () => {
       return (
         <motion.button
           className={styles.valentin__content__buttons_yes}
-          onClick={() => handleAnswer('')}
+          onClick={() => handleAnswer('abrir')}
           whileHover={{ scale: 1.2 }}
           variants={item}
         >
@@ -227,9 +237,28 @@ const Home = () => {
     }
     return null;
   };
+
+  const getBackground = () => {
+    if (step === duduYesQuestions.length + 2) {
+      return {
+        backgroundImage: background,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+
+      };
+    }
+    return {
+      backgroundImage: 'url(/images/background_mobile.jpg)',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+
+    };
+  };
   
   return (
-    <main className={styles.valentin}>
+    <main className={styles.valentin} style={getBackground()}>
       <motion.div className={styles.valentin__content} variants={variants}  initial="hidden"
         animate="show" key={step}>
         {getConfetti()}

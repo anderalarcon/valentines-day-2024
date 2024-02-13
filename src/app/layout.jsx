@@ -14,8 +14,8 @@ const myFont = localFont({
 });
 
 export const metadata = {
-  title: 'San Valentin 2024',
-  description: 'Sorprende a tu pareja este San Valentin'
+  title: '¡Sorprende con Amor! San Valentín 2024: Regalo virtual para tu pareja',
+  description: '¡Celebra el Amor! Regala Emociones en San Valentín 2024: Ideas Virtuales para tu Pareja'
 };
 
 export default function RootLayout({ children }) {
@@ -26,14 +26,16 @@ export default function RootLayout({ children }) {
         <link rel="canonical" href="https://valentines-day-2024-nu.vercel.app/" />
         <meta property="og:type" content="website" />
         <meta property="og:title"
-          content="¡Sorprende con Amor! San Valentín 2024: Mensajes Personalizados y Detalles Especiales" />
-        <meta property="og:description" content="Sorprende a tu pareja este San Valentin" />
+          content="¡Sorprende con Amor! San Valentín 2024: Regalo virtual para tu pareja" />
+        <meta property="og:description"
+          content="¡Celebra el Amor! Regala Emociones en San Valentín 2024: Ideas Virtuales para tu Pareja" />
         <meta property="og:image"
           content="https://i.ytimg.com/vi/OJ2mfZAwVQ8/maxresdefault.jpg" />
         <meta property="og:url" content="https://valentines-day-2024-nu.vercel.app/" />
         <meta name="twitter:title"
-          content="¡Sorprende con Amor! San Valentín 2024: Mensajes Personalizados y Detalles Especiales" />
-        <meta name="twitter:description" content="Sorprende a tu pareja este San Valentin" />
+          content="¡Sorprende con Amor! San Valentín 2024: Regalo virtual para tu pareja" />
+        <meta name="twitter:description"
+          content="¡Celebra el Amor! Regala Emociones en San Valentín 2024: Ideas Virtuales para tu Pareja"/>
         <meta name="twitter:image"
           content="https://i.ytimg.com/vi/OJ2mfZAwVQ8/maxresdefault.jpg" />
         <meta name="twitter:card" content="summary_large_image" />

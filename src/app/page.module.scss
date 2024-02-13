@@ -8,6 +8,7 @@
   align-items: center; 
   position: relative;
   width: 100vw;
+  overflow: hidden;
 
   &__content {
     width: fit-content;

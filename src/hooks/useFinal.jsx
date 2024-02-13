@@ -7,24 +7,40 @@ const useFinal = (step, message) => {
   const [background, setBackground] = useState('url(/images/background_mobile.jpg)');
   
   useEffect(() => {
+    const preloadImage = (url) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+          console.log('Image loaded', url);
+          resolve();
+        };
+        img.onerror = reject;
+        img.src = url;
+      });
+    };
+
+    const changeBackground = async (newBackground) => {
+      await preloadImage(newBackground);
+      setBackground(`url(${newBackground})`);
+    };
+
     if (step === duduYesQuestions.length + 2) {
-      setTimeout(() => {
+      setTimeout(async() => {
         setFinalMessage('Capaz comamos');
         setFinalImage('/gifts/food.gif');
-        setBackground('url(/images/cena.jpeg)');
+        await changeBackground('/images/cena.jpeg');
       }, 5000);
   
       setTimeout(() => {
         setFinalMessage('Capaz bailemos');
         setFinalImage('/gifts/dance.gif');
-        setBackground('url(/images/disco.jpg)');
+        changeBackground('/images/disco.jpg');
       }, 9000);
       
       setTimeout(() => {
         setFinalMessage('Pero lo más importante es que la pasaremos juntos');
         setFinalImage('/gifts/hug.gif');
-        setBackground('url(/images/background.jpg)');
-
+        changeBackground('/images/background.jpg');
       }, 13000);
 
       setTimeout(() => {

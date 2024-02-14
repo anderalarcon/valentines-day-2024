@@ -50,7 +50,7 @@ const Home = () => {
 
   const handleAudio = () => {
     const audio = new Audio('/audio/audio.mp3');
-    audio.volume = 0.05;
+    audio.volume = 0.2;
     audio.loop = true; 
     audio.play();
   };

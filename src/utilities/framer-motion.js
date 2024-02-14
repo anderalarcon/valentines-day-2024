@@ -3,7 +3,7 @@ export const variants = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 1.2
+      staggerChildren: 1.7
     }
   }
 };

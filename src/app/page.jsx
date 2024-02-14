@@ -31,10 +31,10 @@ const Home = () => {
   const searchParams = useSearchParams();
   const from = searchParams.get('from') || 'Dudu';
   const to = searchParams.get('to') || 'Bubu';
-  const customMessage = searchParams.get('message') || 'Te amo mucho chiqui';
+  const customMessage = searchParams.get('message') || 'En este día quiero decirte que te amo mucho mi amor';
 
   const [name] = useTypewriter({
-    words: [`Hola ${to}, te acaba de llegar un mensaje de ${from}, ¿quieres abrirlo?`],
+    words: [`Hola ${to}, te acaba de llegar un mensaje de ${from}, ¿quieres abrirlo? 👀`],
     typeSpeed: 70,
     loop: 1
   });
@@ -80,9 +80,17 @@ const Home = () => {
     } else if (step === 1){
       question = initialQuestion;
     } else if (step === duduYesQuestions.length + 2) {
+      const getFinalColor = () => {
+        if (background === 'url(/images/background.jpg)') {
+          return { color: 'red' };
+        }
+        return { color: 'white' };
+      };
+
       return (
         <div>
           <motion.p
+            style={getFinalColor() }
             variants={item}
             className={styles.valentin__content__title}>
             {finalMessage}
@@ -222,7 +230,7 @@ const Home = () => {
   };
 
   const getConfetti = () => {
-    if (typeof window !== 'undefined' && showConfetti) {
+    if (typeof window !== 'undefined' && step > 0) {
       return (
         <div
           className={`${styles.valentin__content__confetti} 

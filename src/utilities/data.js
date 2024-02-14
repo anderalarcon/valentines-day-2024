@@ -6,9 +6,9 @@ export const defaultImage = '/gifts/dudu_flower.gif';
 
 export const duduYesQuestions = [
   '¿Segura/o?',
-  'No hay vuelta atras, ¿ completamente segura/o ?',
+  'No hay vuelta atrás, ¿ completamente segura/o ?',
   'Yo sabía que querías 🥹',
-  'Entonces me pondré elegante y te esperare ...',
+  'Entonces me pondré elegante y te esperaré ...',
 ];
 
 export const duduNoQuestions = [
@@ -39,6 +39,6 @@ export const yesButtonNegativeOptions = ['Si', 'Está bien... acepto 🫣',
   'Ya me convenciste 🤩', 'Ya caí 😅', 'Está bien...😿'];
 
 export const noButtonAfirmativeOptions = ['No','Me haces dudar oshe 🫨', 'Un poco 🤭',
-  'Me desanime 😠', 'Ya no puedo oponerme 😥'];
+  'Me desanimé 😠', 'Ya no puedo oponerme 😥'];
 
 export const noButtonNegativeOptions = ['No', 'Pues no 😜', 'Que no 🤧', 'Ash... 😓', 'Me secuestran 😱'];

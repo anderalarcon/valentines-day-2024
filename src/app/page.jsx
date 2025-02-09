@@ -40,7 +40,7 @@ const Home = () => {
   });
 
   const { finalMessage, finalImage, background } = useFinal(step, customMessage);
-
+  console.log('test');
   const handleConfetti= () => {
     setShowConfetti(true);
     setTimeout(() => {
